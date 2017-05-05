@@ -1,11 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { SkiDayCount } from './components/SkiDayCount' // importo l'elemento
+import { SkiDayCount } from './components/SkiDayCount'
 
-// Sicurezza!! aggancio React alla 'window' per evitare che venga restituito 'React is not defined'
 window.React = React
 
 render(
-	<SkiDayCount />, // qui richiamo il render del contenuto dell'app
+	<SkiDayCount
+		total={50}
+		powder={20}
+		backcountry={100}
+		goal={100}
+	/>,
 	document.getElementById('react-container')
 )
