@@ -1,6 +1,8 @@
+// Render of single element
 import React from 'react';
 import {render} from 'react-dom';
 
+// Single element data
 const Repo = ({repo, item}) =>
 	<article>
 		<div className='article-content'>

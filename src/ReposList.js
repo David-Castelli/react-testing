@@ -1,7 +1,9 @@
+// Render of element list
 import React from 'react';
 import {render} from 'react-dom';
 import Repo from './Repo';
 
+// List of element component
 class ReposList extends React.Component {
 
 	constructor(props) {
@@ -12,10 +14,12 @@ class ReposList extends React.Component {
 		};
 	}
 
+	// Search function
 	updateSearch(event) {
 		this.setState({search: event.target.value.substr(0, 20)})
 	}
 
+	// Render
 	render() {
 		let filteredRepos = this.state.repos.filter(
 			(repo) => {
@@ -37,7 +41,7 @@ class ReposList extends React.Component {
 					</div>
 			</div>
 		)
-		}
+	}
 
 }
 
