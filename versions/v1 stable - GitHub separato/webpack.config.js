@@ -4,10 +4,6 @@ module.exports = {
 		path: __dirname,
 		filename: "app.js"
 	},
-	devServer: {
-        inline:true,
-        port: 3000
-    },
 	module: {
 		loaders: [{
 			test: /\.js$/,

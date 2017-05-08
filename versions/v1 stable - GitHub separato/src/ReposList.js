@@ -9,35 +9,10 @@ class ReposList extends React.Component {
 	// creo un constructor di ES6 per i dati del campo di input
 	constructor(props) {
 		super(props); // la parola 'super' è usata per chiamare funzioni dal parente di un oggetto
-
-		// inizializzo lo state
 		this.state = {
 			search: '', // stato di defaul per l'input
-			repos: [] // setto l'array dei post come vuoto
-			//repos: props.repos
+			repos: props.repos
 		};
-		console.log('constructor');
-	}
-
-	// metodo che si esegue quando il componente viene montato la prima volta
-	componentDidMount() {
-		const url = 'https://api.github.com/users/iGenius-Srl/repos';
-		// fetch dei dati
-		fetch(url)
-			// se riesce
-			.then(
-				response => response.json()
-			)
-			.then(
-				json => {
-					//console.log(json);
-					const repos = json; // creo un nuovo array con i dati di risultato
-					// aggiorno lo stato del componente con il nuovo array di post, questo comando triggera il re-render
-					this.setState({ repos });
-					console.log('fetch ok: ' + repos);
-				}
-			)
-			console.log('componentDidMount');
 	}
 
 	// Search function - 'event' si riferisce all'evento di digitazione nel searchbox

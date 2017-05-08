@@ -1,0 +1,111 @@
+#app {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.hidden {
+	display: none;
+}
+
+.repos-list {
+	display: block;
+	width: 100%;
+	position: relative;
+}
+
+.repos-list .title {
+	height: 60px;
+	overflow: hidden;
+}
+
+.repos-list .description {
+	height: 50px;
+	overflow: hidden;
+}
+
+.repos-list article {
+	display: inline-block;
+	height: auto;
+	margin: 0;
+	position: relative;
+	vertical-align: top;
+	padding: 10px;
+	width: 100%;
+}
+
+.repos-list article .article-content {
+	border: 1px solid silver;
+	padding: 10px;
+	height: 240px;
+	overflow: hidden;
+}
+
+.repos-list article p,
+.repos-list article span {
+		margin-bottom: 20px;
+}
+
+.watchers,
+.open_issues,
+.language,
+.updated_at,
+.created_at {
+	position: relative;
+	width: 45%;
+	min-width: 40%;
+	display: inline-block;
+}
+
+.watchers,
+.updated_at {
+	float: right;
+}
+
+.language {
+	position: absolute;
+	bottom: 0;
+	right: 20px;
+	text-align: right;
+	font-size: 12px;
+}
+
+.watchers::before,
+.open_issues::before,
+.created_at::before,
+.updated_at::before {
+    content: " ";
+		position: absolute;
+		display: block;
+	  left: 0;
+	  top: -14px;
+	  color: silver;
+	  font-size: 12px;
+}
+
+.watchers::before {
+    content: "Watchers";
+}
+
+.open_issues::before {
+    content: "Issues";
+}
+
+.created_at::before {
+    content: "Creato";
+}
+
+.updated_at::before {
+    content: "Aggiornato";
+}
+
+.created_at::before {
+    content: "Creato";
+}
+
+@media screen and (min-width: 480px) {
+	.repos-list article { width: 50%; }
+}
+
+@media screen and (min-width: 1024px) {
+	.repos-list article { width: 33.33333%; }
+}
