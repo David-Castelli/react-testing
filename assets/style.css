@@ -25,15 +25,19 @@
 
 .repos-list article {
 	display: inline-block;
-	width: 30%;
-	height: 240px;
-	margin-right: 2%;
-	margin-top: 10px;
+	height: auto;
+	margin: 0;
 	position: relative;
-	border: 1px solid silver;
 	vertical-align: top;
-	overflow: hidden;
 	padding: 10px;
+	width: 100%;
+}
+
+.repos-list article .article-content {
+	border: 1px solid silver;
+	padding: 10px;
+	height: 240px;
+	overflow: hidden;
 }
 
 .repos-list article p,
@@ -47,7 +51,7 @@
 .updated_at,
 .created_at {
 	position: relative;
-	width: 40%;
+	width: 45%;
 	min-width: 40%;
 	display: inline-block;
 }
@@ -59,8 +63,8 @@
 
 .language {
 	position: absolute;
-	bottom: -10px;
-	right: 10px;
+	bottom: 0;
+	right: 20px;
 	text-align: right;
 	font-size: 12px;
 }
@@ -96,4 +100,12 @@
 
 .created_at::before {
     content: "Creato";
+}
+
+@media screen and (min-width: 480px) {
+	.repos-list article { width: 50%; }
+}
+
+@media screen and (min-width: 1024px) {
+	.repos-list article { width: 33.33333%; }
 }

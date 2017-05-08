@@ -2,7 +2,8 @@ import React from 'react';
 import {render} from 'react-dom';
 
 const Repo = ({repo, item}) =>
-      <article>
+	<article>
+		<div className='article-content'>
 				{item}
 				<a href={repo.url}>
 		      <h3 className='title'>{repo.name}</h3>
@@ -14,5 +15,6 @@ const Repo = ({repo, item}) =>
 				<span className='open_issues'>{repo.open_issues}</span>
 				<span className='watchers'>{repo.watchers}</span>
 				<p className='language'>{repo.language}</p>
-      </article>
+			</div>
+		</article>
 export default Repo;
