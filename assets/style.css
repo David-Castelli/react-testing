@@ -1,3 +1,8 @@
+#app {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .hidden {
 	display: none;
 }
@@ -8,10 +13,20 @@
 	position: relative;
 }
 
+.repos-list .title {
+	height: 60px;
+	overflow: hidden;
+}
+
+.repos-list .description {
+	height: 50px;
+	overflow: hidden;
+}
+
 .repos-list article {
 	display: inline-block;
 	width: 30%;
-	height: 200px;
+	height: 240px;
 	margin-right: 2%;
 	margin-top: 10px;
 	position: relative;
@@ -19,4 +34,66 @@
 	vertical-align: top;
 	overflow: hidden;
 	padding: 10px;
+}
+
+.repos-list article p,
+.repos-list article span {
+		margin-bottom: 20px;
+}
+
+.watchers,
+.open_issues,
+.language,
+.updated_at,
+.created_at {
+	position: relative;
+	width: 40%;
+	min-width: 40%;
+	display: inline-block;
+}
+
+.watchers,
+.updated_at {
+	float: right;
+}
+
+.language {
+	position: absolute;
+	bottom: -10px;
+	right: 10px;
+	text-align: right;
+	font-size: 12px;
+}
+
+.watchers::before,
+.open_issues::before,
+.created_at::before,
+.updated_at::before {
+    content: " ";
+		position: absolute;
+		display: block;
+	  left: 0;
+	  top: -14px;
+	  color: silver;
+	  font-size: 12px;
+}
+
+.watchers::before {
+    content: "Watchers";
+}
+
+.open_issues::before {
+    content: "Issues";
+}
+
+.created_at::before {
+    content: "Creato";
+}
+
+.updated_at::before {
+    content: "Aggiornato";
+}
+
+.created_at::before {
+    content: "Creato";
 }
