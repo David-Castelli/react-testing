@@ -1,14 +1,13 @@
-// Render of single element
 import React from 'react';
 import {render} from 'react-dom';
 
 // Single element
-const Repo = ({repo, item}) =>
+const Repo = ({repo, item}) => (
 	<article>
 		<div className='article-content'>
 			{item}
-			<a href={repo.url}>
-			<h3 className='title'>{repo.name}</h3>
+			<a href={repo.svn_url}>
+				<h3 className='title'>{repo.name}</h3>
 			</a>
 			<p className='description'>{repo.description}</p>
 			<span className='created_at'>{moment(repo.created_at).format('DD-MM-YYYY')}</span>
@@ -19,4 +18,5 @@ const Repo = ({repo, item}) =>
 			<p className='language'>{repo.language}</p>
 		</div>
 	</article>
+)
 export default Repo;
