@@ -11,8 +11,8 @@ const Repo = ({repo, item}) =>
 			<h3 className='title'>{repo.name}</h3>
 			</a>
 			<p className='description'>{repo.description}</p>
-			<span className='created_at'>{repo.created_at}</span>
-			<span className='updated_at'>{repo.updated_at}</span>
+			<span className='created_at'>{moment(repo.created_at).format('DD-MM-YYYY')}</span>
+			<span className='updated_at'>{moment(repo.updated_at).format('DD-MM-YYYY')}</span>
 			<br/>
 			<span className='open_issues'>{repo.open_issues}</span>
 			<span className='watchers'>{repo.watchers}</span>
