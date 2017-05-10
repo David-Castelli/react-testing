@@ -1,24 +1,48 @@
-import React from 'react'
-import '../stylesheets/ui.scss' // aggiungo la il foglio di stile generico
+import '../stylesheets/ui.scss'
+import Terrain from 'react-icons/lib/md/terrain'
+import SnowFlake from 'react-icons/lib/ti/weather-snow'
+import Calendar from 'react-icons/lib/fa/calendar'
+import { PropTypes } from 'react'
 
-// creo un componente di React tramite 'createClass', che prende in ingresso un oggetto
-export const SkiDayCount = React.createClass({ // uso 'export' in aggiunta a 'const' per fare in modo di passare l'elemento ad index.js
-	// chiamo il render per mostrare l'elemento
-	render() {
-		// dentro il render restituisco un contenuto HTML-like
-		return (
-			// uso JSX per creare un DIV che conterrà tutti gli elementi necessari
-			<div className="ski-day-count">
-				<div className="total-days">
-					<span>5 days</span>
-				</div> 
-				<div className="powder-days">
-					<span>2 days</span>
-				</div> 
-				<div className="backcountry-days">
-					<span>1 hiking day</span>
-				</div> 
-			</div>
-		)
-	}
-})
+const percentToDecimal = (decimal) => {
+	return ((decimal * 100) + '%')
+}
+
+const calcGoalProgress = (total, goal) => {
+	return percentToDecimal(total/goal)
+}
+
+export const SkiDayCount = ({total=70, powder=20, backcountry=10, goal=100}) => (
+	<div className="ski-day-count">
+		<div className="total-days">
+			<span>{total}</span>
+			<Calendar />
+			<span>days</span>
+		</div>
+		<div className="powder-days">
+			<span>{powder}</span>
+			<SnowFlake />
+			<span>days</span>
+		</div>
+		<div className="backcountry-days">
+			<span>{backcountry}</span>
+			<Terrain />
+			<span>days</span>
+		</div>
+		<div>
+				<span>
+					{calcGoalProgress(
+						total,
+						goal
+					)}
+				</span>
+		</div>
+	</div>
+)
+
+SkiDayCount.propTypes = {
+	total: PropTypes.number,
+	powder: PropTypes.number,
+	backcountry: PropTypes.number,
+	goal: PropTypes.number
+}
