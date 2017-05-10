@@ -1,5 +1,6 @@
 # Untracked folders:
 node_modules
+.idea
 course_exercises/rfe/node_modules/
 course_exercises/lnd/node_modules/
 
