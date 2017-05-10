@@ -1,0 +1,22 @@
+.hidden {
+	display: none;
+}
+
+.repos-list {
+	display: block;
+	width: 100%;
+	position: relative;
+}
+
+.repos-list article {
+	display: inline-block;
+	width: 30%;
+	height: 200px;
+	margin-right: 2%;
+	margin-top: 10px;
+	position: relative;
+	border: 1px solid silver;
+	vertical-align: top;
+	overflow: hidden;
+	padding: 10px;
+}
