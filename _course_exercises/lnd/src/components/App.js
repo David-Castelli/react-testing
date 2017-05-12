@@ -1,63 +1,55 @@
-import { Component } from 'react' // importo 'Component' ed elimino 'createClass'
+import { Component } from 'react'
 import { SkiDayList } from './SkiDayList'
 import { SkiDayCount } from './SkiDayCount'
+import { AddDayForm } from './AddDayForm'
+import { Menu } from './Menu'
 
-    // commuto il componente in una class ES6
-    // before: export const App = createClass({
-    export class App extends Component { // le tonde qui ed in chiusura non sono più necessarie
-    // aggiungo un nuovo elemento necessario per prendere in ingresso le props
+export class App extends Component {
     constructor(props) {
-        // creo una 'super' class
         super(props)
-        // passo lo stato iniziale in maniera diversa dalle precedenti, settandolo uguale ad un oggetto
         this.state = {
-            // importante, qui devo inserire 'allSkiDays' e passargli i singoli elementi
             allSkiDays: [
                 {
                     resort: "Squaw Valley",
-                    date: new Date("1/2/2016"),
+                    date: "2016-01-02",
                     powder: true,
                     backcountry: false
-                },
-                {
-                    resort: "Kirkwood",
-                        date: new Date("3/28/2016"),
-                    powder: false,
-                    backcountry: false
-                },
-                {
-                    resort: "Mt. Tallac",
-                        date: new Date("4/2/2016"),
-                    powder: false,
-                    backcountry: true
                 }
             ]
         }
+        this.addDay = this.addDay.bind(this)
     }
-    // getInitialState diventa non più necessario
-    /*getInitialState() {
-        return {
-            allSkiDays:
-        }
-    }*/
-    countDays(filter) {
-        const {allSkiDays} = this.state
-        return allSkiDays.filter(
-            (day) => (filter) ? day[filter] : day
-        ).length
 
-    } // posso rimuovere le virgole
+    addDay(newDay) {
+        this.setState({
+            allSkiDays: [
+                ...this.state.allSkiDays,
+                newDay
+            ]
+        })
+    }
+
+    countDays(filter) {
+        const { allSkiDays } = this.state
+        return allSkiDays.filter(
+            (day) => (filter) ? day[filter] : day).length
+    }
+
     render() {
         return (
             <div className="app">
-                <SkiDayList days={this.state.allSkiDays}/>
-                <SkiDayCount total={this.countDays()}
-                             powder={this.countDays(
-                                 "powder"
-                             )}
-                             backcountry={this.countDays(
-                                 "backcountry"
-                             )} />
+                <Menu/>
+                {( this.props.location.pathname === '/') ?
+                    <SkiDayCount total={this.countDays()}
+                         powder={this.countDays("powder")}
+                         backcountry={this.countDays("backcountry")} /> :
+                    (this.props.location.pathname === "/add-day" ) ?
+                        <AddDayForm onNewDay={this.addDay}/> :
+                        <SkiDayList days={this.state.allSkiDays}
+                            filter={this.props.params.filter}
+                        />
+                }
+
             </div>
         )
     }
