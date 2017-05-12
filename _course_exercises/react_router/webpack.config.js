@@ -1,5 +1,5 @@
 module.exports = {
-	entry: "./src/App.js",
+	entry: "./index.js",
 	output: {
 		path: __dirname,
 		filename: "app.js"

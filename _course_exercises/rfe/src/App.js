@@ -1,20 +1,30 @@
 import React from 'react';
 import {render} from 'react-dom';
-import ReposList from './ReposList';
+import ContactsList from './ContactsList';
 
-let repos = [{}]
-
-repos=test;
+let contacts = [{
+		id: 1,
+		name: 'Scott',
+		phone: '555 111 5555'
+	}, {
+		id: 2,
+		name: 'John',
+		phone: '555 222 5555'
+	}, {
+		id: 3,
+		name: 'David',
+		phone: '555 333 5555'
+	}]
 
 class App extends React.Component {
 	render() {
 		return (
 			<div>
-                <h1>iGenius repositories</h1>
-                <ReposList repos={this.props.repos}/>
+                <h1>Contact List</h1>
+                <ContactsList contacts={this.props.contacts}/>
             </div>
 		)
 	}
 }
 
-render(<App repos={repos} />, document.getElementById('app'));
+render(<App contacts={contacts} />, document.getElementById('app'));
